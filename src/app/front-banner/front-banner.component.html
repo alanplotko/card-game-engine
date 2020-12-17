@@ -4,36 +4,52 @@
   </div>
   <div class="hero-body">
     <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column is-1">
-          <figure class="image is-96x96">
-            <img src="assets/cards.png">
-          </figure>
-        </div>
-        <div class="column is-4">
-          <h1 class="title is-size-1">
-            Join a room
-          </h1>
-          <h2 class="subtitle is-size-3">
-            or <a href="/host" class="has-text-warning" style="text-decoration: underline;">host your own!</a>
-          </h2>
-        </div>
-        <div class="column is-4">
-          <div class="field has-addons">
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-large is-uppercase" type="text" placeholder="Room Code" autofocus maxlength="4">
-              <span class="icon is-medium is-left">
-                <i class="fas fa-key"></i>
-              </span>
-              <span class="icon is-medium is-right">
-                <i class="fas fa-arrow-right"></i>
-              </span>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <div>
+              <figure class="image is-96x96">
+                <img src="assets/cards.png">
+              </figure>
             </div>
-            <div class="control">
-              <a class="button is-info is-large">
-                Join
-              </a>
+          </div>
+          <div class="level-item">
+            <div>
+              <h1 class="title is-size-1 pb-5">
+                Join a room
+              </h1>
+              <h2 class="subtitle is-size-3">
+                or host your own!
+              </h2>
             </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <div>
+              <a class="button is-large is-info is-outlined" href="/host">Host</a>
+            </div>
+          </div>
+          <div class="level-item">
+            <div>
+              <h1 class="is-size-2 has-text-weight-semibold pl-5 pr-5">OR</h1>
+            </div>
+          </div>
+          <div class="level-item">
+            <form class="field has-addons" [formGroup]="joinRoomForm" (ngSubmit)="onSubmit(joinRoomForm.value)">
+              <div class="control has-icons-left has-icons-right">
+                <input class="input is-large is-uppercase" type="text" formControlName="roomCode" placeholder="Room Code" autofocus maxlength="4">
+                <span class="icon is-medium is-left">
+                  <i class="fas fa-key"></i>
+                </span>
+                <span class="icon is-medium is-right">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+              </div>
+              <div class="control">
+                <button class="button is-success is-large" type="submit">Join</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

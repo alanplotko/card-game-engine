@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-front-banner',
@@ -7,10 +7,18 @@ import { HeaderComponent } from '../header/header.component';
   styleUrls: ['./front-banner.component.css']
 })
 export class FrontBannerComponent implements OnInit {
+  joinRoomForm;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.joinRoomForm = this.formBuilder.group({
+      roomCode: ''
+    });
+  }
 
   ngOnInit(): void {
   }
 
+  onSubmit(formData: any) {
+    console.info('Received room code', formData.roomCode.toUpperCase());
+  }
 }
