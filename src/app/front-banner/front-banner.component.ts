@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-front-banner',
@@ -7,12 +7,17 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./front-banner.component.css']
 })
 export class FrontBannerComponent implements OnInit {
-  joinRoomForm;
+  roomCode: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(4),
+    Validators.maxLength(4)
+  ]);
+
+  joinRoomForm: FormGroup = new FormGroup({
+    roomCode: this.roomCode
+  });
 
   constructor(private formBuilder: FormBuilder) {
-    this.joinRoomForm = this.formBuilder.group({
-      roomCode: ''
-    });
   }
 
   ngOnInit(): void {
