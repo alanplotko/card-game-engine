@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-front-banner',
-  templateUrl: './front-banner.component.html',
-  styleUrls: ['./front-banner.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class FrontBannerComponent implements OnInit {
+export class HomeComponent implements OnInit {
+  name: FormControl = new FormControl('', [
+    Validators.required
+  ]);
   roomCode: FormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(4),
@@ -14,6 +17,7 @@ export class FrontBannerComponent implements OnInit {
   ]);
 
   joinRoomForm: FormGroup = new FormGroup({
+    name: this.name,
     roomCode: this.roomCode
   });
 

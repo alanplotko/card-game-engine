@@ -4,7 +4,7 @@ import { Server as HttpServer } from 'http';
 
 const app: Application = require('express')();
 const server: HttpServer = require('http').createServer(app);
-const io: SocketServer = new SocketServer(server, {});
+const io: SocketServer = new SocketServer(server, { transports: ['websocket']});
 const PORT: Number = 3000;
 
 app.get('/', function (req: Request, res: Response) {
@@ -12,9 +12,9 @@ app.get('/', function (req: Request, res: Response) {
 });  
 
 io.on('connection', (socket: Socket) => {
-    console.log('User has connected', socket.client.conn);
+    console.log('User has connected:', socket.id);
     socket.on('disconnect', (data: any) => {
-        console.log('User has disconnected', data);
+        console.log('User has disconnected:', data);
     });
 });
 
