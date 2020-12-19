@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/server",
+    "types": ["node"],
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true
+  },
+  "files": [
+    "src/server/server.ts"
+  ],
+  "include": [
+    "src/server/**/*.d.ts"
+  ]
+}

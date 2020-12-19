@@ -26,42 +26,35 @@
         </div>
         <div class="level-right">
           <div class="level-item">
-            <div>
-              <a class="button is-large is-info is-outlined" href="/host">Host</a>
-            </div>
-          </div>
-          <div class="level-item">
-            <div>
-              <h1 class="is-size-2 has-text-weight-semibold pl-5 pr-5">OR</h1>
-            </div>
-          </div>
-          <div class="level-item">
             <form [formGroup]="joinRoomForm" (ngSubmit)="onSubmit(joinRoomForm.value)">
-              <div class="field has-addons">
-                <div class="control has-icons-left has-icons-right">
+              <div class="field">
+                <label class="label is-medium has-text-white">Name</label>
+                <div class="control has-icons-left">
+                  <input id="name"
+                    class="input is-medium"
+                    type="text" name="name" formControlName="name" placeholder="Name"autofocus required />
+                    <span class="icon is-medium is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label is-medium has-text-white">Room Code</label>
+                <div class="control has-icons-left">
                   <input id="roomCode"
-                    class="input is-large is-uppercase"
-                    type="text" name="roomCode" formControlName="roomCode" placeholder="Room Code"
-                    autofocus required maxlength="4">
+                    class="input is-medium is-uppercase"
+                    type="text" name="roomCode" formControlName="roomCode" placeholder="Room Code" required maxlength="4" />
                   <span class="icon is-medium is-left">
                     <i class="fas fa-key"></i>
                   </span>
-                  <span class="icon is-medium is-right">
-                    <i class="fas fa-arrow-right"></i>
-                  </span>
-                  <div>
-                    <!-- <p class="help is-info-light" *ngIf="roomCode.pristine || roomCode.length === 0">
-                      Ask your host for the room code!
-                    </p> -->
-                  </div>
-                  <div *ngIf="roomCode.invalid && (roomCode.dirty || roomCode.touched)">
-                    <!-- <p *ngIf="roomCode.errors.minlength" class="help is-danger">
-                      Room code must be 4 characters long.
-                    </p> -->
-                  </div>
+                </div>
+              </div>
+              <div class="field is-grouped is-grouped-right">
+                <div class="control">
+                  <button class="button is-success is-medium" type="submit">Join</button>
                 </div>
                 <div class="control">
-                  <button class="button is-success is-large" type="submit">Join</button>
+                  <button class="button is-info is-medium" type="submit">Host</button>
                 </div>
               </div>
             </form>
