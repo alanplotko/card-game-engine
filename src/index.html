@@ -9,14 +9,5 @@
 </head>
 <body>
   <app-root></app-root>
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io('http://localhost:3000', {
-      "force new connection": true,
-      "reconnectionAttempts": "Infinity", //avoid having user reconnect manually in order to prevent dead clients after a server restart
-      "timeout": 10000, //before connect_error and connect_timeout are emitted.
-      "transports": ["websocket"]
-    });
-  </script>
 </body>
 </html>
